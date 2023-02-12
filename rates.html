@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rates calculator</title>
+</head>
+<body>
+
+<label for="cars">Choose a currency:</label>
+<form action="/" method="post">
+    <select name="currency_code">
+        {% for rate in rates_data %}
+            <option value={{ rate.code }}>{{ rate.currency }}</option>
+        {% endfor %}
+    </select>
+    <label for="amount">Enter amount</label>
+    <input type="number" name="amount">
+    <input type="submit">
+</form>
+{% if result %}
+    <p>Result: {{ result }}</p>
+{% endif %}
+</body>
+</html>
